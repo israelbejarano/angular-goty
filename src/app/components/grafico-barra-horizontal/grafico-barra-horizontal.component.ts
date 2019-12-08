@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-grafico-barra-horizontal',
   templateUrl: './grafico-barra-horizontal.component.html',
   styleUrls: ['./grafico-barra-horizontal.component.css']
 })
-export class GraficoBarraHorizontalComponent implements OnInit, OnDestroy {
+export class GraficoBarraHorizontalComponent implements OnDestroy {
 
   results: any[] = [
     {
@@ -46,7 +46,7 @@ export class GraficoBarraHorizontalComponent implements OnInit, OnDestroy {
       const newResults = [...this.results];
 
       // tslint:disable-next-line: forin
-      for (let i in newResults) {
+      for (const i in newResults) {
         newResults[i].value = Math.round(Math.random() * 500);
       }
       this.results = [...newResults];
@@ -57,8 +57,6 @@ export class GraficoBarraHorizontalComponent implements OnInit, OnDestroy {
     console.log(event);
   }
 
-  ngOnInit() {
-  }
   ngOnDestroy(): void {
     clearInterval(this.intervalo);
   }
