@@ -19,10 +19,12 @@ export class GraficoBarraHorizontalComponent implements OnInit {
     {
       name: 'Juego 3',
       value: 15
+    },
+    {
+      name: 'Juego 4',
+      value: 30
     }
   ];
-
-  view: any[] = [700, 400];
 
   // options
   showXAxis = true;
