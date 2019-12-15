@@ -1,4 +1,5 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, Input } from '@angular/core';
+import { JuegoGrafica } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-grafico-barra-horizontal',
@@ -7,24 +8,7 @@ import { Component, OnDestroy } from '@angular/core';
 })
 export class GraficoBarraHorizontalComponent implements OnDestroy {
 
-  results: any[] = [
-    {
-      name: 'Juego 1',
-      value: 20
-    },
-    {
-      name: 'Juego 2',
-      value: 25
-    },
-    {
-      name: 'Juego 3',
-      value: 15
-    },
-    {
-      name: 'Juego 4',
-      value: 30
-    }
-  ];
+  @Input() juegos: JuegoGrafica[] = [];
 
   // options
   showXAxis = true;
@@ -38,19 +22,9 @@ export class GraficoBarraHorizontalComponent implements OnDestroy {
 
   colorScheme = 'nightLights';
 
-  intervalo;
 
   constructor() {
-    this.intervalo = setInterval(() => {
-      console.log('tick');
-      const newResults = [...this.results];
 
-      // tslint:disable-next-line: forin
-      for (const i in newResults) {
-        newResults[i].value = Math.round(Math.random() * 500);
-      }
-      this.results = [...newResults];
-    }, 1500);
   }
 
   onSelect(event) {
@@ -58,7 +32,7 @@ export class GraficoBarraHorizontalComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    clearInterval(this.intervalo);
+    // clearInterval(this.intervalo);
   }
 
 }
