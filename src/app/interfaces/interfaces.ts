@@ -9,3 +9,8 @@ export interface VotoResp {
     ok: boolean;
     mensaje: string;
 }
+
+export interface JuegoGrafica {
+    name: string;
+    value: number;
+}
