@@ -27,6 +27,8 @@ export class GotyComponent implements OnInit {
       // console.log(resp);
       if (resp.ok) {
         Swal.fire('Gracias', resp.mensaje, 'success');
+      } else {
+        Swal.fire('Oops', resp.mensaje, 'error');
       }
     });
   }
